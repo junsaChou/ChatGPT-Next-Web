@@ -572,6 +572,7 @@ export function Chat() {
     if (!accessStore.isAuthorized()) {
       copiedHello.content = Locale.Error.Unauthorized;
     }
+    console.log("测试一下", !accessStore.isAuthorized());
     context.push(copiedHello);
   }
 
