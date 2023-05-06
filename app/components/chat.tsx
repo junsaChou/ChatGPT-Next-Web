@@ -569,10 +569,11 @@ export function Chat() {
     session.messages.at(0)?.content !== BOT_HELLO.content
   ) {
     const copiedHello = Object.assign({}, BOT_HELLO);
+    // accessStore.updateToken( process.env.NEXT_PUBLIC_OPENAI_API_KEY || '');
     if (!accessStore.isAuthorized()) {
       copiedHello.content = Locale.Error.Unauthorized;
     }
-    console.log("测试一下", !accessStore.isAuthorized());
+
     context.push(copiedHello);
   }
 

@@ -2,7 +2,7 @@
  * @Author: junsa junsa163@163.com
  * @Date: 2023-05-05 14:32:13
  * @LastEditors: junsa junsa163@163.com
- * @LastEditTime: 2023-05-06 14:45:25
+ * @LastEditTime: 2023-05-06 15:10:18
  * @FilePath: /workerWebsite/githup/ChatGPT-Next-Web/app/store/access.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -49,7 +49,7 @@ export const useAccessStore = create<AccessControlStore>()(
         set(() => ({ token }));
       },
       isAuthorized() {
-        console.log("运行环境变量", process.env.NEXT_PUBLIC_OPENAI_API_KEY);
+        get().token = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
         // has token or has code or disabled access contro
         return (
           !!get().token || !!get().accessCode || !get().enabledAccessControl()
